@@ -1,0 +1,25 @@
+name: "bert_classifier"
+
+backend: "python"
+
+
+input [
+  {
+    name: "CONTENT"
+    data_type: TYPE_STRING
+    dims: [-1]
+  }
+]
+output [
+  {
+    name: "OUTPUT"
+    data_type: TYPE_STRING
+    dims: [-1]
+  },
+  {
+    name: "PROB"
+    data_type: TYPE_FP32
+    dims: [-1]
+  }
+]
+

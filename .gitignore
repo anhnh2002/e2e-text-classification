@@ -1,0 +1,5 @@
+*.pt
+fastapi/.venv
+model/.venv
+.DS_Store
+.csv
