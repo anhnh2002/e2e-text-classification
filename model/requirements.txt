@@ -6,3 +6,4 @@ nltk
 torch
 numpy
 transformers
+accelerate

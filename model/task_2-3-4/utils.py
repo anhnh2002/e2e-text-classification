@@ -1,9 +1,7 @@
 import pandas as pd
 from transformers import AutoTokenizer
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import Dataset
 import torch
-import numpy as np
-from torch.nn import functional as F
 from typing import Optional
 
 category_mapping = {
@@ -91,3 +89,10 @@ def constrastive_loss(
 #         prev_model,
 #         dataloader,
 # )
+
+def get_df(path: str) -> pd.DataFrame:
+    with open(path, 'r') as file:
+        content = file.readlines()
+    data = [line[:-1].split('\t') for line in content]
+    df = pd.DataFrame(data=data, columns=['TITLE', 'CATEGORY'])
+    return df

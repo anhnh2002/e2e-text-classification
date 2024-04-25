@@ -1,0 +1,5 @@
+2024-04-24 16:34:12,075 - INFO - epoch: 0	train loss:  0.3514	val loss:  0.2070	val accuracy:  0.9288
+2024-04-24 16:34:31,255 - INFO - epoch: 1	train loss:  0.1334	val loss:  0.2138	val accuracy:  0.9314
+2024-04-24 16:34:51,087 - INFO - epoch: 2	train loss:  0.0696	val loss:  0.2167	val accuracy:  0.9398
+2024-04-24 16:35:10,992 - INFO - epoch: 3	train loss:  0.0496	val loss:  0.2482	val accuracy:  0.9347
+2024-04-24 16:35:30,890 - INFO - epoch: 4	train loss:  0.0280	val loss:  0.2475	val accuracy:  0.9432

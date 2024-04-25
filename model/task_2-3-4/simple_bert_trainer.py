@@ -12,16 +12,8 @@ from accelerate import Accelerator
 import logging
 from sklearn.utils import resample
 
-logging.basicConfig(filename='/home/vu.ho_ttsds/FAILED_EXPERIMENTS/dsai_text_classification/logs/cls_bert_base_uncase_contrastive.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-path_to_checkpoint_model = "/home/vu.ho_ttsds/FAILED_EXPERIMENTS/dsai_text_classification/checkpoint/cls_bert_base_uncase_contrastive.pt"
-
-
-def get_df(path: str) -> pd.DataFrame:
-    with open(path, 'r') as file:
-        content = file.readlines()
-    data = [line[:-1].split('\t') for line in content]
-    df = pd.DataFrame(data=data, columns=['TITLE', 'CATEGORY'])
-    return df
+logging.basicConfig(filename='../task_2-3-4/logs/cls_bert_base_uncase_upsample.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+path_to_checkpoint_model = "../task_2-3-4/checkpoint/cls_bert_base_uncase_upsample.pt"
 
 
 def train(
@@ -41,38 +33,26 @@ def train(
     
     
 
-    train_anot = get_df("/home/vu.ho_ttsds/FAILED_EXPERIMENTS/dsai_text_classification/data/train.txt")
-    val_anot = get_df("/home/vu.ho_ttsds/FAILED_EXPERIMENTS/dsai_text_classification/data/valid.txt")
-    test_anot = get_df("/home/vu.ho_ttsds/FAILED_EXPERIMENTS/dsai_text_classification/data/test.txt")
+    train_anot = get_df("../data/train.txt")
+    val_anot = get_df("../data/valid.txt")
 
-    # # upsample health
-    # n_surp_sample = 500
-    # health = train_anot[train_anot["CATEGORY"] == "health"]
-    # health_upsample = resample(health, random_state = 35, n_samples=n_surp_sample, replace = True)
-    # # upsample science_and_technology
-    # n_love_sample = 250
-    # tech = train_anot[train_anot["CATEGORY"] == "science_and_technology"]
-    # tech_upsample = resample(tech, random_state = 35, n_samples=n_love_sample, replace = True)
+    # upsample health
+    n_surp_sample = 500
+    health = train_anot[train_anot["CATEGORY"] == "health"]
+    health_upsample = resample(health, random_state = 35, n_samples=n_surp_sample, replace = True)
+    # upsample science_and_technology
+    n_love_sample = 250
+    tech = train_anot[train_anot["CATEGORY"] == "science_and_technology"]
+    tech_upsample = resample(tech, random_state = 35, n_samples=n_love_sample, replace = True)
 
-    # train_anot = pd.concat([train_anot, health_upsample, tech_upsample])
+    train_anot = pd.concat([train_anot, health_upsample, tech_upsample])
 
     train_dataset = CustomDataset(anot=train_anot, model_id=model_id, max_seq_len=30, device=device)
     val_dataset = CustomDataset(anot=val_anot, model_id=model_id, max_seq_len=30, device=device)
-    test_dataset = CustomDataset(anot=test_anot, model_id=model_id, max_seq_len=30, device=device)
 
     trainloader = DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True)
     valloader = DataLoader(dataset=val_dataset, batch_size=batch_size, shuffle=False)
-    testloader = DataLoader(dataset=test_dataset, batch_size=batch_size, shuffle=False)
 
-    # wandb.init(
-    #   project="is_macro_v2",
-    #   name=f"PhoBert-base-separate-encoder-new",
-    #   config={
-    #       "learning_rate": 0.0005,
-    #       "architecture": "bert",
-    #       "epochs": 20,
-    #   }
-    # )
     accelerator = Accelerator()
 
     model, optimizer, trainloader, valloader, testloader = accelerator.prepare(model, optimizer, trainloader, valloader, testloader)

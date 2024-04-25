@@ -1,0 +1,11 @@
+2024-04-24 17:00:36,102 - INFO - stage #1 epoch: 0	train loss:  0.2969	val loss:  0.1993	val accuracy:  0.9331
+2024-04-24 17:06:36,860 - INFO - stage #2 epoch: 0	train loss:  1.2938	val loss:  0.2289	val accuracy:  0.9322
+2024-04-24 17:07:37,839 - INFO - stage #2 epoch: 1	train loss:  0.1775	val loss:  0.1980	val accuracy:  0.9390
+2024-04-24 17:08:39,529 - INFO - stage #2 epoch: 2	train loss:  0.1139	val loss:  0.1820	val accuracy:  0.9432
+2024-04-24 17:09:47,895 - INFO - stage #2 epoch: 3	train loss:  0.0847	val loss:  0.1894	val accuracy:  0.9424
+2024-04-24 17:11:05,697 - INFO - stage #2 epoch: 4	train loss:  0.0653	val loss:  0.1797	val accuracy:  0.9500
+2024-04-24 17:12:09,044 - INFO - stage #2 epoch: 5	train loss:  0.0502	val loss:  0.1834	val accuracy:  0.9449
+2024-04-24 17:13:12,517 - INFO - stage #2 epoch: 6	train loss:  0.0397	val loss:  0.1915	val accuracy:  0.9475
+2024-04-24 17:14:13,097 - INFO - stage #2 epoch: 7	train loss:  0.0348	val loss:  0.2091	val accuracy:  0.9415
+2024-04-24 17:15:15,368 - INFO - stage #2 epoch: 8	train loss:  0.0247	val loss:  0.2092	val accuracy:  0.9449
+2024-04-24 17:16:17,699 - INFO - stage #2 epoch: 9	train loss:  0.0204	val loss:  0.2041	val accuracy:  0.9483

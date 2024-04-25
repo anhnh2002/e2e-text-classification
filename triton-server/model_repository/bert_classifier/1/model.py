@@ -16,7 +16,7 @@ class TritonPythonModel:
         output0_config = pb_utils.get_output_config_by_name(
             self.model_config, "OUTPUT")
 
-        self.news_classifier = torch.jit.load("models/bert_classifier/1/checkpoint/jitted_cls_bert_base_uncase_upsample.pt")
+        self.news_classifier = torch.jit.load("models/bert_classifier/1/checkpoint/jitted_cls_bert_base_uncase_triple.pt")
         self.news_classifier.eval()
         self.tokenizer = AutoTokenizer.from_pretrained("models/bert_classifier/1/tokenizer", local_files_only=True)
         self.label_mapping = {
