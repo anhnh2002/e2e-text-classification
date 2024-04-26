@@ -8,7 +8,8 @@
 │   │   ├── knn_svm.ipynb (Sử dụng mô hình KNN, SVM; bao gồm cả training - Bài 2.3 và đánh giá - Bài 2.4)
 │   │   ├── simple_bert_trainer.py (Sử dụng pretrained model BERT - Bài 2.3)
 │   │   ├── two_stage_bert_trainer.py (Sử dụng pretrained model BERT kết hợp triplet loss - Bài 2.3)
-│   │   ├── knn_svm.ipynb (Sử dụng mô hình KNN, SVM)
+│   │   ├── knn_svm.ipynb (Huấn luyện và đánh giá mô hình KNN, SVM - Bài 2.3 và Bài 2.4)
+│   │   ├── eval_bert.ipynb (Đánh giá mô hình BERT - Bài 2.4)
 │   │   └── ...
 │   ├── task_1.py (Bài 1)
 │   ├── task_2-1_preprocess.ipynb (Bài 2.1 - Chuẩn bị dữ liệu)
